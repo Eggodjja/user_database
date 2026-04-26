@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Creating a topic{% endblock %}
+
+{% block content %}
+<form method="post" class="form-control d-flex flex-column gap-2" onsubmit="return confirmSubmit()">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input name="first_name" type="text" placeholder="First name" class="form-control">
+    <input name="last_name" type="text" placeholder="Last name" class="form-control">
+    <input name="email" type="text" placeholder="Email" class="form-control">
+    <input value="Add" type="submit" class="btn btn-success"> 
+</form>
+
+<script>
+    function confirmSubmit() {
+        return confirm("Are you sure, that you want to add these records to the database?");
+    }
+</script>
+{% endblock %}
